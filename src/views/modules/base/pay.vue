@@ -32,7 +32,7 @@
         prop="payName"
         header-align="center"
         align="center"
-        label="微信,支付宝,银行卡">
+        label="收支方式">
       </el-table-column>
       <el-table-column
         prop="description"
@@ -40,7 +40,8 @@
         align="center"
         label="备注">
       </el-table-column>
-      <el-table-column
+
+      <!-- <el-table-column
         prop="createrId"
         header-align="center"
         align="center"
@@ -51,14 +52,16 @@
         header-align="center"
         align="center"
         label="创建人">
-      </el-table-column>
+      </el-table-column> -->
+
       <el-table-column
         prop="createTime"
         header-align="center"
         align="center"
         label="创建时间">
       </el-table-column>
-      <el-table-column
+
+      <!-- <el-table-column
         prop="updaterId"
         header-align="center"
         align="center"
@@ -75,8 +78,9 @@
         header-align="center"
         align="center"
         label="修改时间">
-      </el-table-column>
-      <el-table-column
+      </el-table-column> -->
+
+      <!-- <el-table-column
         prop="showStatus"
         header-align="center"
         align="center"
@@ -93,7 +97,7 @@
         header-align="center"
         align="center"
         label="检索首字母">
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column
         fixed="right"
         header-align="center"

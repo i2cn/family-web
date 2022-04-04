@@ -16,9 +16,18 @@
     <el-form-item label="账号所属人" prop="cardholder">
       <el-input v-model="dataForm.cardholder" placeholder="账号所属人"></el-input>
     </el-form-item>
+    
     <el-form-item label="办理时间" prop="cardTime">
-      <el-input v-model="dataForm.cardTime" placeholder="办理时间"></el-input>
+      <el-date-picker
+          v-model="dataForm.cardTime"
+          type="datetime"
+          placeholder="选择日期时间"
+          align="right"
+          :picker-options="pickerOptions"
+          value-format="yyyy-MM-dd HH:mm:ss">
+      </el-date-picker>
     </el-form-item>
+
     <el-form-item label="办理地址" prop="cardAddress">
       <el-input v-model="dataForm.cardAddress" placeholder="办理地址"></el-input>
     </el-form-item>
@@ -28,7 +37,7 @@
     <el-form-item label="备注" prop="description">
       <el-input v-model="dataForm.description" placeholder="备注"></el-input>
     </el-form-item>
-    <el-form-item label="创建人ID" prop="createrId">
+    <!-- <el-form-item label="创建人ID" prop="createrId">
       <el-input v-model="dataForm.createrId" placeholder="创建人ID"></el-input>
     </el-form-item>
     <el-form-item label="创建人" prop="creater">
@@ -54,7 +63,7 @@
     </el-form-item>
     <el-form-item label="检索首字母" prop="firstLetter">
       <el-input v-model="dataForm.firstLetter" placeholder="检索首字母"></el-input>
-    </el-form-item>
+    </el-form-item> -->
     </el-form>
     <span slot="footer" class="dialog-footer">
       <el-button @click="visible = false">取消</el-button>
@@ -102,16 +111,16 @@
             { required: true, message: '账号所属人不能为空', trigger: 'blur' }
           ],
           cardTime: [
-            { required: true, message: '办理时间不能为空', trigger: 'blur' }
+            { required: false, message: '办理时间不能为空', trigger: 'blur' }
           ],
           cardAddress: [
-            { required: true, message: '办理地址不能为空', trigger: 'blur' }
+            { required: false, message: '办理地址不能为空', trigger: 'blur' }
           ],
           cardTelephone: [
-            { required: true, message: '预留电话不能为空', trigger: 'blur' }
+            { required: false, message: '预留电话不能为空', trigger: 'blur' }
           ],
           description: [
-            { required: true, message: '备注不能为空', trigger: 'blur' }
+            { required: false, message: '备注不能为空', trigger: 'blur' }
           ],
           createrId: [
             { required: true, message: '创建人ID不能为空', trigger: 'blur' }
@@ -140,7 +149,29 @@
           firstLetter: [
             { required: true, message: '检索首字母不能为空', trigger: 'blur' }
           ]
-        }
+        },
+        pickerOptions: {
+          shortcuts: [{
+            text: '今天',
+            onClick(picker) {
+              picker.$emit('pick', new Date());
+            }
+          }, {
+            text: '昨天',
+            onClick(picker) {
+              const date = new Date();
+              date.setTime(date.getTime() - 3600 * 1000 * 24);
+              picker.$emit('pick', date);
+            }
+          }, {
+            text: '一周前',
+            onClick(picker) {
+              const date = new Date();
+              date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+              picker.$emit('pick', date);
+            }
+          }]
+        },
       }
     },
     methods: {

@@ -6,8 +6,8 @@
       </el-form-item>
       <el-form-item>
         <el-button @click="getDataList()">查询</el-button>
-        <el-button v-if="isAuth('base:card:save')" type="primary" @click="addOrUpdateHandle()">新增</el-button>
-        <el-button v-if="isAuth('base:card:delete')" type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button>
+        <el-button type="primary" @click="addOrUpdateHandle()">新增</el-button>
+        <el-button type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button>
       </el-form-item>
     </el-form>
     <el-table
@@ -52,13 +52,14 @@
         align="center"
         label="账号所属人">
       </el-table-column>
-      <el-table-column
+       <el-table-column
         prop="cardTime"
         header-align="center"
         align="center"
         label="办理时间">
       </el-table-column>
-      <el-table-column
+      
+      <!--<el-table-column
         prop="cardAddress"
         header-align="center"
         align="center"
@@ -111,8 +112,9 @@
         header-align="center"
         align="center"
         label="修改时间">
-      </el-table-column>
-      <el-table-column
+      </el-table-column> -->
+
+      <!-- <el-table-column
         prop="showStatus"
         header-align="center"
         align="center"
@@ -129,7 +131,7 @@
         header-align="center"
         align="center"
         label="检索首字母">
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column
         fixed="right"
         header-align="center"

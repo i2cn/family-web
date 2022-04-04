@@ -1,4 +1,4 @@
-# 步骤
+# 一、环境搭建
 
 1. ## 切换淘宝镜像：
 
@@ -27,7 +27,41 @@
   npm uninstall node-sass
   ```
 
-  
+**日期：2022/3/31**
+
+------
+
+
+
+# 二、前后端调试
+
+1、修改请求网关地址
+
+```vue
+/**
+ * 开发环境
+ */
+;(function () {
+  window.SITE_CONFIG = {};
+
+  // api接口请求地址
+  window.SITE_CONFIG['baseUrl'] = 'http://localhost:88/api';
+
+  // cdn地址 = 域名 + 版本号
+  window.SITE_CONFIG['domain']  = './'; // 域名
+  window.SITE_CONFIG['version'] = '';   // 版本号(年月日时分)
+  window.SITE_CONFIG['cdnUrl']  = window.SITE_CONFIG.domain + window.SITE_CONFIG.version;
+})();
+```
+
+2、基础服务
+
+- 创建基础管理模块
+- 前后端调试
+- 完善方式管理、账号管理细节信息。
+- 修改版式。
+
+![](https://cdn.jsdelivr.net/gh/willxwu/CDN@main/images/202204041737051.png)
 
 
 

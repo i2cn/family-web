@@ -4,13 +4,13 @@
     :close-on-click-modal="false"
     :visible.sync="visible">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmit()" label-width="80px">
-    <el-form-item label="微信,支付宝,银行卡" prop="payName">
-      <el-input v-model="dataForm.payName" placeholder="微信,支付宝,银行卡"></el-input>
+    <el-form-item label="收支方式" prop="payName">
+      <el-input v-model="dataForm.payName" placeholder="例如:微信,支付宝,银行卡..."></el-input>
     </el-form-item>
     <el-form-item label="备注" prop="description">
       <el-input v-model="dataForm.description" placeholder="备注"></el-input>
     </el-form-item>
-    <el-form-item label="创建人ID" prop="createrId">
+    <!-- <el-form-item label="创建人ID" prop="createrId">
       <el-input v-model="dataForm.createrId" placeholder="创建人ID"></el-input>
     </el-form-item>
     <el-form-item label="创建人" prop="creater">
@@ -36,7 +36,7 @@
     </el-form-item>
     <el-form-item label="检索首字母" prop="firstLetter">
       <el-input v-model="dataForm.firstLetter" placeholder="检索首字母"></el-input>
-    </el-form-item>
+    </el-form-item> -->
     </el-form>
     <span slot="footer" class="dialog-footer">
       <el-button @click="visible = false">取消</el-button>
@@ -69,7 +69,7 @@
             { required: true, message: '微信,支付宝,银行卡不能为空', trigger: 'blur' }
           ],
           description: [
-            { required: true, message: '备注不能为空', trigger: 'blur' }
+            { required: false, message: '备注不能为空', trigger: 'blur' }
           ],
           createrId: [
             { required: true, message: '创建人ID不能为空', trigger: 'blur' }
