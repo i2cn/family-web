@@ -48,6 +48,7 @@
         label="年龄">
       </el-table-column>
       <el-table-column
+       :formatter="formatRole"
         prop="sex"
         header-align="center"
         align="center"
@@ -102,6 +103,7 @@
         prop="email"
         header-align="center"
         align="center"
+        width="110"
         label="邮箱">
       </el-table-column>
       <el-table-column
@@ -336,6 +338,9 @@
           }
           let dt = new Date(data)
           return dt.getFullYear() + '年' + (dt.getMonth() + 1) + '月' + dt.getDate()+'日'
+      },
+      formatRole( row, column) {
+            return row.sex == 0 ? "男" : row.sex == 1 ? "女" : "中性";
       }
     }
   }

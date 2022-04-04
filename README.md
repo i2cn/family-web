@@ -65,3 +65,8 @@
 
 
 
+3、新建成员管理微服务
+
+- 处理校验、日期时间、性别枚举、版式等等细节问题。
+
+![](https://cdn.jsdelivr.net/gh/willxwu/CDN@main/images/202204042123909.png)
