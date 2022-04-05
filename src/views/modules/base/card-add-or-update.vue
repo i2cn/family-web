@@ -10,12 +10,22 @@
     <el-form-item label="账号" prop="cardNumber">
       <el-input v-model="dataForm.cardNumber" placeholder="账号"></el-input>
     </el-form-item>
-    <el-form-item label="账号所属人ID" prop="cardholderId">
-      <el-input v-model="dataForm.cardholderId" placeholder="账号所属人ID"></el-input>
+
+    <el-form-item label="所属人" prop="cardholderId">
+      <!-- <el-input v-model="dataForm.cardholderId" placeholder="持卡人ID"></el-input> -->
+      <el-select v-model="dataForm.cardholderId" placeholder="请选择">
+        <el-option
+          v-for="item in members"
+          :key="item.id"
+          :label="item.memberName"
+          :value="item.id">
+        </el-option>
+      </el-select>
     </el-form-item>
-    <el-form-item label="账号所属人" prop="cardholder">
+
+    <!-- <el-form-item label="账号所属人" prop="cardholder">
       <el-input v-model="dataForm.cardholder" placeholder="账号所属人"></el-input>
-    </el-form-item>
+    </el-form-item> -->
     
     <el-form-item label="办理时间" prop="cardTime">
       <el-date-picker
@@ -76,6 +86,7 @@
   export default {
     data () {
       return {
+        members:[],
         visible: false,
         dataForm: {
           id: 0,
@@ -108,7 +119,7 @@
             { required: true, message: '账号所属人ID不能为空', trigger: 'blur' }
           ],
           cardholder: [
-            { required: true, message: '账号所属人不能为空', trigger: 'blur' }
+            { required: false, message: '账号所属人不能为空', trigger: 'blur' }
           ],
           cardTime: [
             { required: false, message: '办理时间不能为空', trigger: 'blur' }
@@ -176,6 +187,7 @@
     },
     methods: {
       init (id) {
+        this.getMembers();
         this.dataForm.id = id || 0
         this.visible = true
         this.$nextTick(() => {
@@ -253,6 +265,19 @@
             })
           }
         })
+      },
+      getMembers(){
+        //发送请求获取当前节点最新的数据
+      this.$http({
+        url: this.$http.adornUrl('/base/card/memberVos'),
+        method: "get"
+      })
+        .then(({ data }) => {
+          //请求成功
+          // console.log("要回显的数据", data);
+          this.members=data.data;
+        })
+        .catch(() => {});
       }
     }
   }

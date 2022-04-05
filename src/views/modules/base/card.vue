@@ -26,13 +26,14 @@
         prop="id"
         header-align="center"
         align="center"
+        width="170"
         label="序号">
       </el-table-column>
       <el-table-column
         prop="cardName"
         header-align="center"
         align="center"
-        label="账号名称">
+        label="名称">
       </el-table-column>
       <el-table-column
         prop="cardNumber"
@@ -40,26 +41,28 @@
         align="center"
         label="账号">
       </el-table-column>
-      <el-table-column
+
+      <!-- <el-table-column
         prop="cardholderId"
         header-align="center"
         align="center"
         label="账号所属人ID">
-      </el-table-column>
+      </el-table-column> -->
+
       <el-table-column
         prop="cardholder"
         header-align="center"
         align="center"
-        label="账号所属人">
+        label="所属人">
       </el-table-column>
        <el-table-column
         prop="cardTime"
         header-align="center"
         align="center"
+        width="158"
         label="办理时间">
       </el-table-column>
-      
-      <!--<el-table-column
+      <el-table-column
         prop="cardAddress"
         header-align="center"
         align="center"
@@ -77,7 +80,8 @@
         align="center"
         label="备注">
       </el-table-column>
-      <el-table-column
+      
+      <!--<el-table-column
         prop="createrId"
         header-align="center"
         align="center"
